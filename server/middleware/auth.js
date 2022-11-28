@@ -1,4 +1,4 @@
-import { Jwt } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 //create a verify token function with next parameter as third,
 //try catch with an error message if token fails
