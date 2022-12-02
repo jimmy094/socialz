@@ -1,8 +1,9 @@
 import React from 'react'
 
+
 const LoginPage = () => {
   return (
-    <div>loginPage</div>
+    <div>fucking loginPage</div>
   )
 }
 
