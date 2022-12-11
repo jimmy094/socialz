@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-//! will be the state stored in global state this data will be accesible in our entire app and we can grab wherever we want and dont have to passs down state and props into different components
+//! will be the state stored in global state this data will be accesible in our entire app and we can grab wherever we want and dont have to pass down state and props into different components
 
 //? represents dark and light mode, configure globally
 //? auth info we are storing
@@ -13,7 +13,7 @@ const initialState = {
 };
 
 //* reducers are our actions/functions that involve modifying out initial state
-//* state.mode reps the previous state, what you set it to will be the new state.
+//* state.mode reps the initialState, what you set it to will be the new state.
 
 export const authSlice = createSlice({
     name: "auth",
@@ -23,10 +23,10 @@ export const authSlice = createSlice({
             state.mode = state.mode === "light" ? "dark" : "light";
         },
         setLogin: (state, action) => {
-            state.user = action.payload.token;
+            state.user = action.payload.user;
             state.token = action.payload.token;
         },
-        setLogout: (state, action) => {
+        setLogout: (state) => {
             state.user = null;
             state.token = null;
         },
@@ -42,7 +42,7 @@ export const authSlice = createSlice({
         },
         setPost: (state, action) => {
             const updatedPosts = state.posts.map((post) => {
-                if (post._id === action.payload.post_id) return action.payload.post;
+                if (post._id === action.payload.post._id) return action.payload.post;
                 return post;
             });
             state.posts = updatedPosts;

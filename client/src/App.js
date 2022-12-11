@@ -11,8 +11,9 @@ import { themeSettings } from "./theme";
 
 //grabbing mode that we have from our state/initial state, if ever wanting to grab from the store,  useSelector grab the state and correct reducer.
 //set up our theme useMemo and createTheme
-//theme provider tag configures theme
+//theme provider tag configures theme, pass in theme
 //then cssbaseline resets css 
+//
 
 function App() {
 

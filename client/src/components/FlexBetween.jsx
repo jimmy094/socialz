@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { styled } from "@mui/system";
 
-//reuse css as a styled component
+//reuse this css as a styled component
 
 const FlexBetween = styled(Box)({
     display: "flex",
