@@ -9,6 +9,7 @@ import { setLogin } from "state";
 import DropZone from "react-dropzone";
 import FlexBetween from 'components/FlexBetween';
 import { AudioFileSharp } from '@mui/icons-material';
+import { color } from '@mui/system';
 
 //validate inputs by requiring inputs and errors if invalid
 const registerSchema = yup.Object().shape({
@@ -159,6 +160,59 @@ const handleFormSubmit = async(values, onSubmitProps) => {};
                             </Box>        
                         </>
                     )}
+
+                        <TextField
+                            label="Email"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.email}
+                            name="email"
+                            error={Boolean(touched.email) && Boolean(errors.email)}
+                            helperText={touched.email && errors.email}
+                            sx={{ gridColumn: "span 4"}} 
+                        />
+
+                        <TextField
+                            label="Password"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.password}
+                            name="password"
+                            error={Boolean(touched.password) && Boolean(errors.password)}
+                            helperText={touched.password && errors.password}
+                            sx={{ gridColumn: "span 4"}} 
+                        />                  
+
+                </Box>
+
+                {/* BUTTONS */}
+                <Box>
+                    <Button
+                        fullWidth
+                        type="submit"
+                        sx={{
+                            m: "2rem 0",
+                            p: "1 rem",
+                            backgroundColor: palette.primary.main,
+                            color: palette.background.alt,
+                            "&:hover": { color: palette.primary.main }
+                        }}
+                    >
+                        {isLogin ? "LOGIN": "REGISTER"}
+                    </Button>
+
+                    <Typography
+                    onClick={() => {
+                        setPageType(isLogin ? "register : "login");
+                        resetForm();
+                    }}
+                    sx={{
+                        textDecoration: "underline",
+                        color: palette 
+                    }}
+                    >
+
+                    </Typography>
 
                 </Box>
             </form>
