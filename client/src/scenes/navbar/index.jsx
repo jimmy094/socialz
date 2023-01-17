@@ -39,16 +39,16 @@ const Navbar = () => {
       <FlexBetween gap="1.75rem">
 
         <Typography
-          fontWeight="bold"
-          fontSize="clamp(1rem, 2rem, 2.25rem)"
-          color="primary"
-          onClick={() => navigate("/home")}
-          sx={{
-            "&:hover": {
-              color: primaryLight,
-              cursor: "pointer",
-            },
-          }}
+            fontWeight="bold"
+            fontSize="clamp(1rem, 2rem, 2.25rem)"
+            color="primary"
+            onClick={() => navigate("/home")}
+            sx={{
+              "&:hover": {
+                color: primaryLight,
+                cursor: "pointer",
+              },
+            }}
         >
           Sociopedia 
         </Typography>
@@ -119,14 +119,14 @@ const Navbar = () => {
       {/* mobile nav */}
       {!isNonMobileScreens && isMobileMenuToggled && (
         <Box
-        position="fixed"
-        right="0"
-        bottom="0"
-        height="100%"
-        zIndex="10"
-        maxWidth="500px"
-        minWidth="300px"
-        backgroundColor={background}
+          position="fixed"
+          right="0"
+          bottom="0"
+          height="100%"
+          zIndex="10"
+          maxWidth="500px"
+          minWidth="300px"
+          backgroundColor={background}
         >
             {/* close icon */}
             <Box display="flex" justifyContent="flex-end" p="1rem" >
@@ -138,15 +138,15 @@ const Navbar = () => {
 
             {/* menu items */}
             <FlexBetween 
-            display="flex" 
-            flexDirection="column" 
-            justifyContent="center" 
-            alignItems="center"
-            gap="3rem"
+              display="flex" 
+              flexDirection="column" 
+              justifyContent="center" 
+              alignItems="center"
+              gap="3rem"
             >
               <IconButton 
-              onClick={() => dispatch(setMode())}
-              sx={{ fontSize: "25px" }}
+                onClick={() => dispatch(setMode())}
+                sx={{ fontSize: "25px" }}
               >
                 {theme.palette.mode === "dark" ? (
                   <DarkMode sx={{ fontSize: "25px "}} />
@@ -175,11 +175,11 @@ const Navbar = () => {
                   }}
                   input={<InputBase />} 
                   >
-                  <MenuItem value={fullName}>
-                    <Typography>
-                      {fullName}
-                    </Typography>
-                  </MenuItem >
+                    <MenuItem value={fullName}>
+                      <Typography>
+                        {fullName}
+                      </Typography>
+                    </MenuItem >
                   <MenuItem onClick={() => dispatch(setLogout())}>
                     Log out
                   </MenuItem>
