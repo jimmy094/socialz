@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Typography, useTheme, useMediaQuery } from '@mui/material'
+import Form from './Form';
 
 
 
@@ -10,15 +11,18 @@ const LoginPage = () => {
 
 
   return (
-    <Box
-      width="100%"
-      backgroundColor={theme.palette.background.alt}
-      p="1rem 6%"
-      textAlign="center"
-    >
-        <Typography fontWeight="bold" fontSize="32px" color="primary">
-          Socialzz
-        </Typography>
+    <Box>
+
+        <Box
+          width="100%"
+          backgroundColor={theme.palette.background.alt}
+          p="1rem 6%"
+          textAlign="center"
+        >
+          <Typography fontWeight="bold" fontSize="32px" color="primary">
+            Socialzz
+          </Typography>
+        </Box>
 
         <Box
           width={isNonMobileScreens? "50%" : "93%"}
@@ -27,14 +31,19 @@ const LoginPage = () => {
           borderRadius="1.5rem"
           backgroundColor={theme.palette.background.alt}
         >
-          <Typography fontweight="500" variant="h5" sx={{ mb: "1.5rem"}}>
+          <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem"}}>
             Welcome to this socialz web app
           </Typography>
 
+          <Form />
+
         </Box>
-          
+        
     </Box>
+    
   )
 }
+
+          
 
 export default LoginPage;

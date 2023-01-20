@@ -1,21 +1,21 @@
 import { useState } from 'react'
-import { Box, Button, TextField, UseMediaQuery, Typography, useTheme, useMediaQuery } from "@mui/material";
-import { EditOutlinedIcon } from '@mui/icons-material/EditOutlined';
+import { Box, Button, TextField, useMediaQuery, Typography, useTheme } from "@mui/material";
+import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 import { Formik } from 'formik';
-import * as yup from "yup"
+import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { setLogin } from "state";
 import DropZone from "react-dropzone";
 import FlexBetween from 'components/FlexBetween';
-import { AudioFileSharp } from '@mui/icons-material';
-import { color } from '@mui/system';
+// import { AudioFileSharp } from '@mui/icons-material';
+// import { color } from '@mui/system';
 
 //validate inputs by requiring inputs and errors if invalid
-const registerSchema = yup.Object().shape({
+const registerSchema = yup.object().shape({
     firstName: yup.string().required("required"),
     lastName: yup.string().required("required"),
-    email: yup.string().email("Ivalid email").required("required"),
+    email: yup.string().email("Invalid email").required("required"),
     password: yup.string().required("required"),
     location: yup.string().required("required"),
     occupation: yup.string().required("required"),
@@ -24,11 +24,11 @@ const registerSchema = yup.Object().shape({
 })
 
 const loginSchema = yup.object().shape({
-    email: yup.string().email("Ivalid email").required("required"),
+    email: yup.string().email("Invalid email").required("required"),
     password: yup.string().required("required"),
 });
 
-const initalValueRegister = {
+const initialValuesRegister = {
     firstName: "",
     lastName: "",
     email: "",
@@ -48,6 +48,7 @@ const initialValuesLogin = {
 const Form = () => {
 
 const [pageType, setPageType] = useState("login");
+
 const { palette } = useTheme();
 const dispatch = useDispatch();
 const navigate = useNavigate();
@@ -111,7 +112,7 @@ const handleFormSubmit = async(values, onSubmitProps) => {
   return (
     <Formik
         onSubmit={handleFormSubmit}
-        initialValues={isLogin ? initialValuesLogin : initalValueRegister}
+        initialValues={isLogin ? initialValuesLogin : initialValuesRegister}
         validationSchema={isLogin? loginSchema : registerSchema}
     >
         {({
@@ -120,6 +121,7 @@ const handleFormSubmit = async(values, onSubmitProps) => {
             touched,
             handleBlur,
             handleChange,
+            handleSubmit,
             setFieldValue,
             resetForm
         }) => (
@@ -198,7 +200,7 @@ const handleFormSubmit = async(values, onSubmitProps) => {
                                             border={`2px dashed ${palette.primary.main}`}
                                             p="1rem"
                                             sx={{ "&:hover": { cursor: "pointer" }}}
-                                            >
+                                        >
 
                                             <input {...getInputProps()} />
                                             {!values.picture ? (
@@ -206,19 +208,19 @@ const handleFormSubmit = async(values, onSubmitProps) => {
                                             ) : (
                                                 <FlexBetween>
                                                     <Typography>{values.picture.name}</Typography>
-                                                    <EditOutlinedIcon />
+                                                    <ModeEditOutlineIcon />
                                                 </FlexBetween>
                                             )}
                                             
                                         </Box>
                                     )}
-
                                 </DropZone>
-
-                            
                             </Box>        
                         </>
                     )}
+
+
+                            
 
                         <TextField
                             label="Email"
@@ -284,7 +286,7 @@ const handleFormSubmit = async(values, onSubmitProps) => {
         )}
 
     </Formik>
-  )
-}
+  );
+};
 
-export default Form
+export default Form;
