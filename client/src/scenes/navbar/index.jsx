@@ -9,11 +9,6 @@ import { useNavigate } from 'react-router-dom';
 import FlexBetween from 'components/FlexBetween';
 
 
-
-
-
-
-
 const Navbar = () => {
 
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
@@ -28,8 +23,8 @@ const Navbar = () => {
   const background = theme.palette.background.default;
   const primaryLight = theme.palette.primary.light;
   const alt = theme.palette.background.alt;
-  const fullName = "static string";
-  //`${user.firstName} ${user.lastName}`
+ 
+  const fullName = "firstName lastName"
 
   
   
@@ -77,7 +72,7 @@ const Navbar = () => {
               <IconButton onClick={() => dispatch(setMode())}>
                 {theme.palette.mode === "dark" ? (
                   <DarkMode sx={{ fontSize: "25px "}} />
-                ):( 
+                ) : ( 
                   <LightMode sx ={{ color: dark, fontSize: "25px "}} />
                 )}
               </IconButton>
@@ -92,14 +87,14 @@ const Navbar = () => {
                       backgroundColor: neutralLight,
                       width: "150px",
                       borderRadius: "0.25rem",
-                      p: "0.25rem 1 rem",
+                      p: "0.25rem 1rem",
                       "& .MuiSvgIcon-root": {
-                        pr:"0.25rem",
+                        pr: "0.25rem",
                         width: "3rem",
                       },
                       "& .MuiSelect-select: focus": {
-                          backgroundColor: neutralLight
-                      }
+                          backgroundColor: neutralLight,
+                      },
                     }}
                     input={<InputBase />} >
                       <MenuItem value={fullName}>
@@ -197,6 +192,11 @@ const Navbar = () => {
     
 
 export default Navbar;
+
+
+
+
+
 
 
 
