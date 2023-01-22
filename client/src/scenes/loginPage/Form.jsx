@@ -259,7 +259,7 @@ const handleFormSubmit = async(values, onSubmitProps) => {
                         type="submit"
                         sx={{
                             m: "2rem 0",
-                            p: "1 rem",
+                            p: "1rem",
                             backgroundColor: palette.primary.main,
                             color: palette.background.alt,
                             "&:hover": { color: palette.primary.main }

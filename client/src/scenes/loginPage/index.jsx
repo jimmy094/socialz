@@ -6,6 +6,7 @@ import Form from './Form';
 
 
 
+
 const LoginPage = () => {
 
   const theme = useTheme();
@@ -27,7 +28,7 @@ const LoginPage = () => {
         </Box>
 
         <Box
-          width={isNonMobileScreens? "50%" : "93%"}
+          width={isNonMobileScreens ? "50%" : "93%"}
           p="2rem"
           m="2rem auto"
           borderRadius="1.5rem"
@@ -37,6 +38,7 @@ const LoginPage = () => {
             Welcome to this socialz web app
           </Typography>
 
+          
           <Form />
 
         </Box>
