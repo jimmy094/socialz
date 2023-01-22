@@ -1,15 +1,21 @@
 import { useState } from 'react'
-import { Box, Button, TextField, useMediaQuery, Typography, useTheme } from "@mui/material";
+import { 
+    Box, 
+    Button, 
+    TextField, 
+    useMediaQuery, 
+    Typography, 
+    useTheme 
+} from "@mui/material";
 import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 import { Formik } from 'formik';
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { setLogin } from "state";
-import DropZone from "react-dropzone";
+import Dropzone from "react-dropzone";
 import FlexBetween from 'components/FlexBetween';
-// import { AudioFileSharp } from '@mui/icons-material';
-// import { color } from '@mui/system';
+
 
 //validate inputs by requiring inputs and errors if invalid
 const registerSchema = yup.object().shape({
@@ -48,13 +54,13 @@ const initialValuesLogin = {
 const Form = () => {
 
 const [pageType, setPageType] = useState("login");
-
 const { palette } = useTheme();
 const dispatch = useDispatch();
 const navigate = useNavigate();
 const isNonMobile = useMediaQuery("(min-width:600px)");
 const isLogin = pageType === "login";
 const isRegister = pageType === "register";
+
 
 
 const register = async (values, onSubmitProps) => {
@@ -78,7 +84,7 @@ const register = async (values, onSubmitProps) => {
     if (savedUser) {
         setPageType("login");
     }
-}
+};
 
 const login = async (values, onSubmitProps) => {
     const loggedInResponse = await fetch(
@@ -101,11 +107,11 @@ const login = async (values, onSubmitProps) => {
         navigate("/home");
     }
         
-}
+};
 
 const handleFormSubmit = async(values, onSubmitProps) => {
     if (isLogin) await login(values, onSubmitProps);
-    if (isRegister) await registerSchema(values, onSubmitProps);
+    if (isRegister) await register(values, onSubmitProps);
 };
 
    
@@ -123,7 +129,7 @@ const handleFormSubmit = async(values, onSubmitProps) => {
             handleChange,
             handleSubmit,
             setFieldValue,
-            resetForm
+            resetForm,
         }) => (
             <form onSubmit={handleSubmit}>
                 <Box
@@ -182,12 +188,12 @@ const handleFormSubmit = async(values, onSubmitProps) => {
 
                             <Box 
                                 gridColumn="span 4"
-                                border={`1px solid ${palette.nuetral.medium}`}
+                                border={`1px solid ${palette.neutral.medium}`}
                                 borderRadius="5px"
                                 p="1rem"
                             >
                             
-                                <DropZone
+                                <Dropzone
                                     acceptedFiles=".jpg,.jpeg,.png"
                                     multiple={false}
                                     onDrop={(acceptedFiles) => 
@@ -214,7 +220,7 @@ const handleFormSubmit = async(values, onSubmitProps) => {
                                             
                                         </Box>
                                     )}
-                                </DropZone>
+                                </Dropzone>
                             </Box>        
                         </>
                     )}
@@ -290,3 +296,4 @@ const handleFormSubmit = async(values, onSubmitProps) => {
 };
 
 export default Form;
+
