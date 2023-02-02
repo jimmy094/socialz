@@ -45,7 +45,7 @@ const Navbar = () => {
               },
             }}
         >
-          Socialzz  
+          Social book
         </Typography>
 
         {isNonMobileScreens && (
